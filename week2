@@ -1,0 +1,128 @@
+import React from 'react';
+
+const BoxCounter = () => {
+  const increment = (element) => {
+    var currentValue = parseInt(element.innerText);
+    element.innerText = currentValue + 1;
+  };
+
+  return (
+    <div>
+      <style>{`
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #ffd633;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+        }
+        .navbar img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .container {
+            text-align: center;
+            overflow: auto;
+            max-height: 100vh;
+        }
+        .box {
+            width: vw;
+            height: vh;
+            margin: 1vw;
+            text-align: center;
+            line-height: 20vh;
+            font-size: 3em;
+            cursor: pointer;
+            display: block;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .box:hover {
+            border-color: black;
+        }
+        .box1 { background-color: #dbfb15; }
+        .box2 { background-color: #2bf2fe; }
+        .box3 { background-color: #f474ff; }
+        .box4 { background-color: #ff8a8a; }
+        .footer {
+            background-color: #28aa49;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        @media only screen and (min-width: 1024px) {
+          /*  hanya akan berlaku untuk layar dengan lebar minimum 1024 piksel. */
+          .container {
+              text-align: center;
+          }
+          .navbar {
+              text-align: left;
+              justify-content: flex-start;
+          }
+          .footer {
+              text-align: left;
+          }
+          .order-desktop {
+              display: none;
+          }
+          .order-mobile {
+              display: block;
+          }
+      }
+  
+      @media only screen and (max-width: 1024px) {
+          .container {
+              text-align: center;
+          }
+          .navbar {
+              text-align: center;
+              justify-content: center;
+          }
+          .footer {
+              text-align: center;
+          }
+          .order-desktop {
+              display: block;
+          }
+          .order-mobile {
+              display: none;
+          }
+      }
+      `}</style>
+
+      <div className="navbar">
+        <img src="Screenshot_2024-03-07_172951-removebg-preview.png" alt="logo" />
+        <div>
+          Incubation <br />
+          <b>Week 1</b>
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="box box4 order-desktop" onClick={(e) => increment(e.target)}>4</div>
+        <div className="box box3 order-desktop" onClick={(e) => increment(e.target)}>3</div>
+        <div className="box box2 order-desktop" onClick={(e) => increment(e.target)}>2</div>
+        <div className="box box1 order-desktop" onClick={(e) => increment(e.target)}>1</div>
+        
+        <div className="box box1 order-mobile" onClick={(e) => increment(e.target)}>1</div>
+        <div className="box box2 order-mobile" onClick={(e) => increment(e.target)}>2</div>
+        <div className="box box3 order-mobile" onClick={(e) => increment(e.target)}>3</div>
+        <div className="box box4 order-mobile" onClick={(e) => increment(e.target)}>4</div>
+      </div>
+
+      <div className="footer">
+        Made by Rifa
+      </div>
+    </div>
+  );
+}
+
+export default BoxCounter;
